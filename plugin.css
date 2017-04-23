@@ -39,3 +39,13 @@
     background-color: #fff;
     color: #333;
 }
+
+@media screen and (max-device-width: 769px) {
+    #anchors-navbar {
+        display: none;
+    }
+
+    #goTop{
+     display: none;
+    }
+}
