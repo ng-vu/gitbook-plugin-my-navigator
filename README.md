@@ -4,6 +4,10 @@ This plugin will add a `table of content` navigator on the right top of each pag
 
 It is based on https://github.com/zhangzq/gitbook-plugin-navigator, fix the gitbook compatibility.
 
+## Demo
+
+https://book.morizyun.com/java/
+
 ## Config `book.json`
 
 ```js
@@ -11,7 +15,6 @@ It is based on https://github.com/zhangzq/gitbook-plugin-navigator, fix the gitb
     plugins: ["neo-navigator"]
 }
 ```
-
 
 ## or Install locally
 
