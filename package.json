@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-neo-navigator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "add toc navigator without smart phone",
   "main": "index.js",
   "scripts": {

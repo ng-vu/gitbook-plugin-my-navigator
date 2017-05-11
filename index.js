@@ -6,6 +6,20 @@ function get_id(text) {
     return text.replace(/[,;. &%+*\/]/g, "_");
 }
 
+function shuffle(array) {
+  var n = array.length, t, i;
+
+  while (n) {
+    i = Math.floor(Math.random() * n--);
+    t = array[n];
+    array[n] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
+var EMOJI_LIST = ["😀", "🍣", " 🎳", " 🎃", " 🤔", " 🍮", " 😸", " 🍄", " 🎂", " 🎉", " 😎", " 🐹", " 🏀", " 🐰", " 🚜", "🚕", "🚌", "😼", "🗽", "🗻", "👽", "🐯", "🐮", "🐡", "🐠", "🐞", "🐝", "🏈"];
 
 module.exports = {
     book: {
@@ -20,6 +34,7 @@ module.exports = {
             var title_id = "";
             var title = "";
             var h2 = 0, h3 = 0, h4 = 0;
+            var suffled_emoji = shuffle(EMOJI_LIST);
             $(':header').each(function(i, elem) {
                 var header = $(elem);
                 header.attr("id", get_id(header.text()));
@@ -32,7 +47,7 @@ module.exports = {
                     case "h2":
                         h2 += 1;
                         h3 = h4 = 0;
-                        text = h2 + ". " + header.text();
+                        text = suffled_emoji[h2] + " " + header.text();
                         header.text(text);
                         toc.push({
                             name: header.text(),
