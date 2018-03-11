@@ -1,26 +1,26 @@
 {
-  "name": "gitbook-plugin-neo-navigator",
-  "version": "0.0.2",
-  "description": "add toc navigator without smart phone",
+  "name": "gitbook-plugin-my-navigator",
+  "version": "0.1.1",
+  "description": "My navigator",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/morizyun/gitbook-plugin-neo-navigator.git"
+    "url": "git+https://github.com/ng-vu/gitbook-plugin-my-navigator.git"
   },
   "keywords": [
     "gitbook",
     "plugin",
     "ftp"
   ],
-  "author": "morizyun",
+  "author": "ng-vu",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/morizyun/gitbook-plugin-neo-navigator/issues"
+    "url": "https://github.com/ng-vu/gitbook-plugin-my-navigator/issues"
   },
-  "homepage": "https://github.com/morizyun/gitbook-plugin-neo-navigator#readme",
+  "homepage": "https://github.com/ng-vu/gitbook-plugin-my-navigator",
   "dependencies": {
     "cheerio": "*"
   },

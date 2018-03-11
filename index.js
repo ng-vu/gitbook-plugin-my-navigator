@@ -1,25 +1,10 @@
-// based on https://github.com/yaneryou/gitbook-plugin-anchor-navigation
+// based on https://github.com/morizyun/gitbook-plugin-neo-navigator, https://github.com/yaneryou/gitbook-plugin-anchor-navigation
 
 var cheerio = require('cheerio');
 
 function get_id(text) {
     return text.replace(/[,;. &%+*\/]/g, "_");
 }
-
-function shuffle(array) {
-  var n = array.length, t, i;
-
-  while (n) {
-    i = Math.floor(Math.random() * n--);
-    t = array[n];
-    array[n] = array[i];
-    array[i] = t;
-  }
-
-  return array;
-}
-
-var EMOJI_LIST = ["😀", "🍣", " 🎳", " 🎃", " 🤔", " 🍮", " 😸", " 🍄", " 🎂", " 🎉", " 😎", " 🐹", " 🏀", " 🐰", " 🚜", "🚕", "🚌", "😼", "🗽", "🗻", "👽", "🐯", "🐮", "🐡", "🐠", "🐞", "🐝", "🏈"];
 
 module.exports = {
     book: {
@@ -34,7 +19,7 @@ module.exports = {
             var title_id = "";
             var title = "";
             var h2 = 0, h3 = 0, h4 = 0;
-            var suffled_emoji = shuffle(EMOJI_LIST);
+
             $(':header').each(function(i, elem) {
                 var header = $(elem);
                 header.attr("id", get_id(header.text()));
@@ -47,7 +32,7 @@ module.exports = {
                     case "h2":
                         h2 += 1;
                         h3 = h4 = 0;
-                        text = suffled_emoji[h2] + " " + header.text();
+                        text = header.text();
                         header.text(text);
                         toc.push({
                             name: header.text(),
@@ -59,7 +44,7 @@ module.exports = {
                         h3 += 1;
                         h4 = 0;
 
-                        text = h2 + "." + h3 + ". " + header.text();
+                        text = h3 + ". " + header.text();
                         header.text(text);
                         if (toc.length == 0) {
                             toc.push({name: "none", url: "", children: []});
@@ -72,7 +57,7 @@ module.exports = {
                         break;
                     case "h4":
                         h4 += 1;
-                        text = h2 + "." + h3 + "." + h4 + ". " + header.text();
+                        text = h3 + "." + h4 + ". " + header.text();
                         header.text(text);
                         if (toc.length == 0) {
                             toc.push({name: "none", url: "", children: []});
@@ -96,7 +81,7 @@ module.exports = {
                 return section;
             }
 
-            var html = "<div id='anchors-navbar'><i class='fa fa-anchor'></i><ul><p><a href='#" + title_id +"'>" + title + "</a></p>";
+            var html = "<div id='anchors-navbar'><i class='fa fa-bars'></i><ul><p id='anchors-navbar-header'><a href='#" + title_id + "'>" + title + "</a></p>";
             for(var i=0;i<toc.length;i++){
                 html += "<li><a href='#"+toc[i].url+"'>"+toc[i].name+"</a></li>";
                 if(toc[i].children.length>0){
@@ -116,9 +101,7 @@ module.exports = {
             }
             html += "</ul></div><a href='#"+toc[0].url+"' id='goTop'><i class='fa fa-arrow-up'></i></a>";
 
-
             section.content = $.html() + html;
-
             return section;
         }
     }

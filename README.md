@@ -1,8 +1,8 @@
 # neo-navigator
 
-This plugin will add a `table of content` navigator on the right top of each page, and a `return to top` button without smart-phone or tablet.
+This plugin will add a `table of content` navigator on the right top of each page, and a `return to top` button without smart-phone or tablet. Customized for personal usage.
 
-It is based on https://github.com/zhangzq/gitbook-plugin-navigator, fix the gitbook compatibility.
+It is based on [gitbook-plugin-neo-navigator](https://github.com/morizyun/gitbook-plugin-neo-navigator), which is based on [gitbook-plugin-navigator](https://github.com/zhangzq/gitbook-plugin-navigator).
 
 ## Demo
 
@@ -12,12 +12,12 @@ https://book.morizyun.com/java/
 
 ```js
 {
-    plugins: ["neo-navigator"]
+    plugins: ["my-navigator"]
 }
 ```
 
 ## or Install locally
 
 ```
-$ npm install gitbook-plugin-neo-navigator --save
+$ npm install gitbook-plugin-my-navigator --save
 ```
